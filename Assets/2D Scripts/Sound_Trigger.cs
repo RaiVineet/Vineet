@@ -5,9 +5,16 @@ using UnityEngine;
 public class Sound_Trigger : MonoBehaviour
 {
     public AudioClip Sound;
-    void OnTriggerEnter2D(Collider2D other)
+    private bool hasplayed = false;
+
+    void OnTriggerEnter2D()
     {
-        GetComponent<AudioSource>().PlayOneShot(Sound);
+        if (!hasplayed)
+        {
+            GetComponent<AudioSource>().PlayOneShot(Sound);
+            hasplayed = true;
+           
+        }
 
     }
 
