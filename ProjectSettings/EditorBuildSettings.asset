@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/2D Scenes/Title.unity
+    guid: 590337869cfb150499957b6adfaef9c6
+  - enabled: 1
+    path: Assets/2D Scenes/Tutorial.unity
+    guid: fef3b752bbe04494fa0f29edb84d877c
+  - enabled: 0
+    path: Assets/Horror Assets/tutorial/Tutorial.unity
+    guid: f4b41d8d3b131a944a8be86629af3984
+  - enabled: 0
+    path: Assets/Horror Assets/Tutorial.unity
+    guid: c5bc18e7d221d534196af52de0e4efb4
+  - enabled: 1
+    path: Assets/2D Scenes/tutorial-1.unity
+    guid: 3826348c40d5cf04e8d1f1b6567a075f
+  - enabled: 1
+    path: Assets/2D Scenes/Level 1/Level 1.unity
+    guid: ccdac7cf3701c4b49b7d4b68bf98ec2f
+  - enabled: 1
+    path: Assets/2D Scenes/Level 2/Level 2.unity
+    guid: 52b21df3713cc1441afa5a92393bc039
+  - enabled: 1
+    path: Assets/2D Scenes/Level 3/Level_3.unity
+    guid: c05179d236fc3be4c8c2c3efdcc14022
+  - enabled: 1
+    path: Assets/2D Scenes/Level 3/PR_1.unity
+    guid: 1bcd67aa01ea8914191fa2a423359350
+  m_configObjects: {}
