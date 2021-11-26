@@ -80,6 +80,10 @@ public class InventoryItemUse : MonoBehaviour
             case "Key5Prefab(Clone)":
                 pc.WhichUseItem("Key5");
                 break;
+            case "Key6Prefab(Clone)":
+                pc.WhichUseItem("Key6");
+                break;
+
             case "LighterPrefab(Clone)":
                 pc.WhichUseItem("Lighter");
                 break;

@@ -276,6 +276,7 @@ MonoBehaviour:
   _sgm: {fileID: 0}
   DoorLock: {fileID: 0}
   DoorLock2: {fileID: 0}
+  DoorLock3: {fileID: 0}
   ClickOutobj: {fileID: 78269994}
   co: {fileID: 0}
   up1: {fileID: 626558520}
@@ -635,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &78269995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5786,6 +5787,7 @@ MonoBehaviour:
   _sgm: {fileID: 0}
   DoorLock: {fileID: 0}
   DoorLock2: {fileID: 0}
+  DoorLock3: {fileID: 0}
   ClickOutobj: {fileID: 78269994}
   co: {fileID: 0}
   up1: {fileID: 1472569725}
