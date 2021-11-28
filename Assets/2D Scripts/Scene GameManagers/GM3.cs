@@ -43,10 +43,11 @@ public class GM3 : MonoBehaviour
     public GameObject CombLock_2;  // Room2 Lock
     public GameObject Cabneit_2;  // Room 2 Cabinet
 
-    public GameObject combLock_3;  // room 1 lock
-    public GameObject Cabneit_3;   // room 1 cabinet lock
+    public GameObject combLock_3;  // room 3 lock
+    public GameObject Cabneit_3;   // room 3 cabinet lock
 
-
+    public GameObject combLock_4;  // room  4 lock
+    public GameObject Cabneit_4;   // room 4 cabinet lock
 
     public PuzzleUI PUI;
     public GameObject stackofpaper;
@@ -55,19 +56,19 @@ public class GM3 : MonoBehaviour
 
     void Start()
     {
-        spawnPoints = spawnPointsGroup.GetComponentsInChildren<Transform>();
-
+        spawnPoints = spawnPointsGroup.GetComponentsInChildren<Transform>(); // Enemy swap points 
         redLight.gameObject.SetActive(false);
 
         timerGate = true;
-        timer = 60f;  //start time before the enemy spawns
+        timer = 120f;  //start time before the enemy spawns
 
 
         EnterCollider.GetComponent<BoxCollider>().enabled = false;  // first disable it 
+
         CombLock_2.SetActive(false);
         combLock_3.SetActive(false);
-        // stackofpaper.SetActive(false);
-        //stackofFiles.SetActive(false);
+        combLock_4.SetActive(false);
+        
         AcessDoor.SetActive(false);
         AccessDoor2.SetActive(false);
         AccessDoor3.SetActive(false);
@@ -101,6 +102,7 @@ public class GM3 : MonoBehaviour
         pc.SavePlayer();
         pc.FindOnScene();
     }
+
     //Burned Enemy Stuffs 
     public void ChooseSpawnPoint()
     {
@@ -138,24 +140,34 @@ public class GM3 : MonoBehaviour
         timer = Random.Range(20f, 120f);
         timerGate = true;
     }
-    // opne lock of the cabinet 1 
+
+    // lock 1
     public void UnlockCombi1()
     {
         combLock_1.SetActive(false); //  if the player achive the clue than the disappaer the lock 
         PUI.PuzzlesOn();
         Cabneit_1.GetComponent<BoxCollider>().enabled = false;
     }
+    // lock2
     public void UnlockComb_2()
     {
         CombLock_2.SetActive(false); //  if the player achive the clue than the disappaer the lock 
         PUI.PuzzlesOn();
         Cabneit_2.GetComponent<BoxCollider>().enabled = false;
     }
+    //lock 3
     public void UnlockComb_3()
     {
         combLock_3.SetActive(false); //  if the player achive the clue than the disappaer the lock 
         PUI.PuzzlesOn();
         Cabneit_3.GetComponent<BoxCollider>().enabled = false;
+    }
+    // lock 4
+    public void UnlockComb_4()
+    {
+        combLock_4.SetActive(false); //  if the player achive the clue than the disappaer the lock 
+        PUI.PuzzlesOn();
+        Cabneit_4.GetComponent<BoxCollider>().enabled = false;
     }
 
     public void AcessDoorOn2()

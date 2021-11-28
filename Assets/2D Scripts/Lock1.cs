@@ -429,7 +429,7 @@ public class Lock1 : MonoBehaviour
             co.Out();
         }
     }
-    public void Go33()  ///  MUSIC 
+    public void Go33()  ///  Nicky
 
     {
         if (one == 3 && two == 2 && three == 4 && four == 5 && five == 2)
@@ -439,6 +439,29 @@ public class Lock1 : MonoBehaviour
             _gm3.combLock_3.SetActive(false);
             DoorLock3.SetActive(false);
             pc.InspectText.text = "You got a special key";
+            pc.TextUp();
+            pc.prefabItem = pc.KeyItem3;
+            pc.ItemSlotCheck();
+            pc.ItemSlotDeposit();
+            co.Out();
+        }
+        else
+        {
+            pc.InspectText.text = "Wrong Code";
+            pc.TextUp();
+            co.Out();
+        }
+    }
+    public void Go34()  ///  PIANO
+
+    {
+        if (one == 3 && two == 2 && three == 4 && four == 5 && five == 2)
+        {
+            //_gm3.UnlockCombi1();
+            _gm3.UnlockComb_4();
+            _gm3.combLock_4.SetActive(false);
+            //DoorLock4.SetActive(false);
+            pc.InspectText.text = " A key ";
             pc.TextUp();
             pc.prefabItem = pc.KeyItem3;
             pc.ItemSlotCheck();

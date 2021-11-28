@@ -32,9 +32,9 @@ public class PlayerData
         hp = player.hp;
         BatteryLife = player.batteryLife;
 
-        haveFlashlight = player.haveFlashlight;
-        haveLighter = player.haveLighter;
-        haveSprayCan = player.haveSprayCan;
+       /// haveFlashlight = player.haveFlashlight;
+       //haveLighter = player.haveLighter;
+       // haveSprayCan = player.haveSprayCan;
 
         if (player.flashlightHand.transform.childCount > 0)
             handslot = player.flashlightHand.transform.GetChild(0).gameObject.name;

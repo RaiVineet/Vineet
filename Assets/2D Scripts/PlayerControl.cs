@@ -27,6 +27,7 @@ public class PlayerControl : MonoBehaviour
 
     public SpriteRenderer mySprite;
     public GameObject Mal;
+    private FootstepsSoundEffect footstepsSound;
 
 
     private Vector2 target;
@@ -93,6 +94,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject pickupSFXobj;
     public AudioSource pickupSFX;
     public AudioSource FootstepSound;
+    public AudioSource jumpsounnd;
    // public AudioClip footstep;
 
     public string sceneAccess;
@@ -153,22 +155,16 @@ public class PlayerControl : MonoBehaviour
     }
     public void Flip()
     {
-        FacingRight = !FacingRight;
-        GameObject IK = GameObject.Find("IK");
-        GameObject Skeleton = GameObject.Find("Skeleton");
-
-        Vector3 ikScale = IK.transform.localScale;
-        ikScale.x *= -1;
-        IK.transform.localScale = ikScale;
+       
 
         if (FacingRight)
         {
-            Skeleton.transform.localEulerAngles = new Vector3(Skeleton.transform.localEulerAngles.x, 180.0f, Skeleton.transform.localEulerAngles.z) ;
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 180.0f, transform.localEulerAngles.z) ;
 
         }
         else
         {
-            Skeleton.transform.localEulerAngles = new Vector3(Skeleton.transform.localEulerAngles.x, 0.0f, Skeleton.transform.localEulerAngles.z);
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0.0f, transform.localEulerAngles.z);
         }
     }
     public void SavePlayer()
@@ -190,7 +186,7 @@ public class PlayerControl : MonoBehaviour
         haveFlashlight = data.haveFlashlight;
         haveLighter = data.haveLighter;
         haveSprayCan = data.haveSprayCan;
-        RespawnHand();
+        //RespawnHand();
 
         FindOnScene();
 
@@ -716,7 +712,7 @@ public class PlayerControl : MonoBehaviour
         }
         if (collision.gameObject.tag == "Fall")
         {
-            Application.Quit();     //jump back to checkpoint instead
+            //Application.Quit();     //jump back to checkpoint instead
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -802,6 +798,7 @@ public class PlayerControl : MonoBehaviour
             {
                 stamBool = false;
                 myRigidbody.velocity = new Vector2(horizontal * movementSpeed + sprint, myRigidbody.velocity.y);
+               
                 anim.SetBool("isRunning", true);
                 anim.SetBool("isWalking", false);
                 anim.SetBool("isJumping", false);
@@ -811,6 +808,7 @@ public class PlayerControl : MonoBehaviour
                 if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
                 {
                     StartCoroutine(JumpSpeed());
+                   
                     anim.SetBool("isJumping", true);
                     anim.SetBool("isWalking ", false);
                     anim.SetBool("isRunning", false);
@@ -836,7 +834,7 @@ public class PlayerControl : MonoBehaviour
                     {
                         // play kick animation
                         k.KickFuncs();
-                        anim.SetBool("isKicking", true);
+                        //anim.SetBool("isKicking", true);
 
 
                     }
@@ -948,29 +946,7 @@ public class PlayerControl : MonoBehaviour
                     itemlock = false;
                     break;
                 }
-            case "Door4":
-                if (storedUseItemRef == "Key6")
-                {
-                    Destroy(GameObject.Find("Key6Prefab(Clone)"));
-                    Destroy(UseObj);
-                    //_gm3.Door1();
-                    InspectText.text = "Door Open";
-                    StartCoroutine(UseTextEnum());
-                    //fade to level 3
-                    itemUseBool = false;
-                    itemlock = false;
-                    break;
-                }
-
-                else
-                {
-                    InspectText.text = "That doesn't fit in the lock.";
-                    StartCoroutine(UseTextEnum());
-                    itemUseBool = false;
-                    itemlock = false;
-                    break;
-                }
-
+            
 
 
         }
@@ -1002,9 +978,9 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        
+        Flip();
 
-        //transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime, 0f, 0f);
+       
         if (!playerLock)
         {
             if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.D)))
@@ -1013,19 +989,20 @@ public class PlayerControl : MonoBehaviour
                 {
                     horizontal = -1f;
                     sprint = -5f;
-                    //Flip();
-                    //mySprite.flipX = true;
-
-                    //Flip the Charcater 
-                    /*
-                    Vector3 characterScale = transform.localScale;
-                   
-                    if (Input.GetAxis("Horizontal") < 0)
+                    FacingRight = true;  // flip the charcacter 
+                    if (FacingRight)
                     {
-                        characterScale.x = sprint;
+                        if (!FootstepSound.isPlaying)
+                        {
+                            FootstepSound.Play();
+                        }
+                        
                     }
-                    transform.localScale = characterScale;
-                    */
+                    else
+                    {
+                        FootstepSound.Play();
+                    }
+
                     anim.SetBool("isWalking", true);
                     anim.SetBool("isRunning", false);
                     anim.SetBool("isUsing", false);
@@ -1036,31 +1013,34 @@ public class PlayerControl : MonoBehaviour
                 {
                     horizontal = 1f;
                     sprint = 5f;
-                    //Flip();
-                    /*
-                    Vector3 characterScale = transform.localScale;
-                    if (Input.GetAxis("Horizontal") > 0)
+                    FacingRight = false; // Flip the character 
+                    if (FacingRight)
                     {
-                        characterScale.x = sprint;
-                     }
-                    transform.localScale = characterScale;
-                    
-                    */
-                    //mySprite.flipX = false;
+                        if (!FootstepSound.isPlaying)
+                        {
+                             FootstepSound.Play();
+                        }
+                        
+                    }
+                    else
+                    {
+                        FootstepSound.Play();
+                    }
+
                     anim.SetBool("isWalking", true);
                     anim.SetBool("isRunning", false);
                     anim.SetBool("isUsing", false);
                 }
 
-                // not working , stps at any time , need to be fix
                 /*
                 else
                 {
                     //Stop everything
                     anim.SetBool("isWalking", false);
                     anim.SetBool("isRunning", false);
-                    horizontal = 0f;
+                    //horizontal = 0f;
                 }
+                */
                 
                 if (Input.GetMouseButtonDown(2))
                 {
@@ -1081,7 +1061,7 @@ public class PlayerControl : MonoBehaviour
                      myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);
                 }
                 
-                */
+                
 
             }
             

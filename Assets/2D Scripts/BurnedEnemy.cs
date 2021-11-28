@@ -18,6 +18,8 @@ public class BurnedEnemy : MonoBehaviour
     public PlayerControl pc;
     public GameObject _GM2;
     public GM2 _gm2;
+    public GameObject _GM3;
+    public GM3 _gm3;
 
     private void Start()
     {
@@ -35,6 +37,10 @@ public class BurnedEnemy : MonoBehaviour
         _GM2 = GameObject.Find("Level2GameManager");
         if (_GM2 != null)
             _gm2 = _GM2.gameObject.GetComponent<GM2>();
+
+        _GM3 = GameObject.Find("Level3GameManager");
+        if (_GM3 != null)
+            _gm3 = _GM3.gameObject.GetComponent<GM3>();
         dyingFlames.SetActive(false);
     }
 
