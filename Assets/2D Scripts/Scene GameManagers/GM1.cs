@@ -8,7 +8,7 @@ public class GM1 : MonoBehaviour
     public Canvas Lock1;
 
     public GameObject flashlightPickup;
-
+    public GameObject StacksOfPapers;
     //public GameObject lightbulbStand1;
     //public GameObject lightbulbStand2;
     //public GameObject lightbulbStand3;

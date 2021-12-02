@@ -10,9 +10,11 @@ public class BurnedEnemy : MonoBehaviour
     public float leftMost;
     private SpriteRenderer mySprite;
     public GameObject dyingFlames;
+    public Animator anim;
 
     public bool inFlames;
     public bool flameSwitch;
+    private bool FacingRight;
 
     public GameObject p;
     public PlayerControl pc;
@@ -21,15 +23,17 @@ public class BurnedEnemy : MonoBehaviour
     public GameObject _GM3;
     public GM3 _gm3;
 
+
     private void Start()
     {
         mySprite = GetComponentInChildren<SpriteRenderer>();
         inFlames = false;
         flameSwitch = false;
 
+      
         moveSpeed = 5;
 
-        if (p == null)
+        //if (p == null)
         {
             p = GameObject.FindGameObjectWithTag("Player");
             pc = p.GetComponent<PlayerControl>();
@@ -43,20 +47,34 @@ public class BurnedEnemy : MonoBehaviour
             _gm3 = _GM3.gameObject.GetComponent<GM3>();
         dyingFlames.SetActive(false);
     }
-
+    //if the enemy 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            pc.TakeDamage();
+           //play the enemy killing the player
+            pc.TakeDamage(); // take damamge, load the another scene 
         }
     }
-
+    // check the player must flip towards the player
     public void FlipSpriteCheck()
     {
         if (transform.position.x < p.transform.position.x)
         {
+
+            anim.Play("(Mal(Burned Enemy)(Patrol Animation)");
             mySprite.flipX = true;
+            /*
+            if (FacingRight)
+            {
+                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 180.0f, transform.localEulerAngles.z);
+
+            }
+            else
+            {
+                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0.0f, transform.localEulerAngles.z);
+            }
+            */
         }
     }
 
@@ -64,6 +82,10 @@ public class BurnedEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Flames")
         {
+            //play the stagger animation( get expose to fire) as just for the little time before the retreat animation ( ran away animation )
+            // anim.SetBool("stagger", true);
+            // Mal(Burned Enemy)(Fire - Stagger)
+            anim.Play("Mal(Burned Enemy)(Fire - Stagger)");
             inFlames = true;
         }
     }
@@ -71,7 +93,9 @@ public class BurnedEnemy : MonoBehaviour
     IEnumerator Dying()
     {
         dyingFlames.SetActive(true);
-        //play burn animation with particles
+        //play burn animation with particles, play the retreat animation 
+        anim.Play("Mal (Burned Enemy)(Fire-Retreat)");
+        //anim.SetBool("Alert", true);
         yield return new WaitForSeconds(2f);
         _gm2.normalLight.gameObject.SetActive(true);
         _gm2.redLight.gameObject.SetActive(false);
@@ -83,11 +107,18 @@ public class BurnedEnemy : MonoBehaviour
 
     void Update()
     {
+        FlipSpriteCheck(); // check the flip of the enemy
+
         if (!inFlames)
         {
+           // anim.Play("Mal (Burned Enemy)(Patrol Animation)");
             if (!flameSwitch)
+            {
+                
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(p.transform.position.x, transform.position.y), moveSpeed * Time.deltaTime);
-
+            }
+             
+           
             //run speed if he sees player? Testing needed on this as if he can see us, we can see him, so he would always be running to us
 
             //what to do if he passes under the player?

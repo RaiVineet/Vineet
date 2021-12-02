@@ -52,6 +52,7 @@ public class GM3 : MonoBehaviour
     public PuzzleUI PUI;
     public GameObject stackofpaper;
     public GameObject stackofFiles;
+    public GameObject BackstoryFile;
 
 
     void Start()

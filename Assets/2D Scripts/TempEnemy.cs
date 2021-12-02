@@ -15,7 +15,7 @@ public class TempEnemy : MonoBehaviour
 
     public bool inLight;
     public bool lightSwitch;
-
+    public Animator anim;
     public GameObject p;
     public PlayerControl pc;
 
@@ -28,8 +28,9 @@ public class TempEnemy : MonoBehaviour
             LeftEye.SetActive(false);
         else
             RightEye.SetActive(false);
-
-        if (p == null)
+       
+       
+        //if (p == null)
         {
             p = GameObject.FindGameObjectWithTag("Player");
             pc = p.GetComponent<PlayerControl>();
@@ -42,7 +43,12 @@ public class TempEnemy : MonoBehaviour
         {
             if (collision.gameObject.tag == "light")
             {
+               
                 StartCoroutine(Flee());
+                // Play the enemy Recoil animation 
+                //anim.Play("Crawling Enemy (Flashlight Recoil Animation)");
+                anim.Play("Crawling Enemy (Stagger Animation)");
+                
             }
         }
     }
@@ -51,39 +57,54 @@ public class TempEnemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+           
             pc.TakeDamage();
+            // Play the enemy attack Animation
+            anim.Play("Crawling Enemy (Attack Animation)");
+           
         }
     }
 
     IEnumerator Flee()
     {
-        inLight = true;
-        lightSwitch = false;
-        yield return new WaitForSeconds(3);
-        inLight = false;
-        lightSwitch = true;
+       
+
+        
+         inLight = true;
+         lightSwitch = false;
+         yield return new WaitForSeconds(3);
+         inLight = false;
+         lightSwitch = true;
+        
     }
 
     void Update()
     {
+        
         if (!inLight)
         {
+            // Play the enemy walking animation
+            anim.Play("Crawling Enemy (Movement Animation)");
             if (transform.position.x >= rightMost)
             {
+                
+                
                 moveRight = false;
                 RightEye.SetActive(false);
                 LeftEye.SetActive(true);
-                mySprite.flipX = false;
+               
             }
 
             if (transform.position.x <= leftMost)
             {
+               
                 moveRight = true;
                 RightEye.SetActive(true);
                 LeftEye.SetActive(false);
-                mySprite.flipX = true;
+               
+                
             }
-
+            
 
             if (moveRight)
                 transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
@@ -93,10 +114,18 @@ public class TempEnemy : MonoBehaviour
 
         if (inLight)
         {
+           
             if (moveRight)
                 transform.position = new Vector2(transform.position.x - (moveSpeed * 2) * Time.deltaTime, transform.position.y);
             else
                 transform.position = new Vector2(transform.position.x + (moveSpeed * 2) * Time.deltaTime, transform.position.y);
+            
         }
     }
 }
+
+
+
+
+
+

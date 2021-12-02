@@ -706,7 +706,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "KickZone")
         {
             k = collision.gameObject.GetComponentInParent<Kick>();
-            anim.SetBool("isKicking", true);
+            //anim.SetBool("isKicking", true);
             
             kickBool = true;
         }
@@ -904,8 +904,7 @@ public class PlayerControl : MonoBehaviour
                 {
                     Destroy(GameObject.Find("Key3Prefab(Clone)"));
                     Destroy(UseObj);
-                 
-
+                   
                     _gm1.AccessDoor.SetActive(true);
                     _gm1.DoorSFXon();
                    
@@ -1042,7 +1041,7 @@ public class PlayerControl : MonoBehaviour
                 }
                 */
                 
-                if (Input.GetMouseButtonDown(2))
+                if (Input.GetMouseButtonDown(1))
                 {
                      if (kickBool)
                      {
@@ -1068,12 +1067,13 @@ public class PlayerControl : MonoBehaviour
             
             else
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetMouseButtonDown(1))
                 {
                     if (kickBool)
                     {
                         // play kick animation
                         k.KickFuncs();
+                        anim.Play("isKicking");
                     }
                 }
                 horizontal = 0f;
