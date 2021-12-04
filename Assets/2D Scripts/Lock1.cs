@@ -388,7 +388,7 @@ public class Lock1 : MonoBehaviour
         if (one == 3 && two == 2 && three == 4 && four == 5 && five == 2)
         {
             _gm3.UnlockCombi1();
-            _gm3.UnlockComb_2();
+           
             DoorLock.SetActive(false);
            
             pc.InspectText.text = "door open ";
@@ -396,7 +396,7 @@ public class Lock1 : MonoBehaviour
             pc.ItemSlotCheck();
             pc.ItemSlotDeposit(); 
             pc.TextUp();
-            _gm3.EnterCollider.GetComponent<BoxCollider>().enabled = true;
+            
             co.Out();
         }
         else

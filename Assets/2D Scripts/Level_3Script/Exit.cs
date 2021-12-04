@@ -23,7 +23,7 @@ public class Exit : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             pc.LoadTitle();
-            Destroy(_gm3);// destroy everything 
+            Destroy(pc);    // destroy everything 
         }
     }
 

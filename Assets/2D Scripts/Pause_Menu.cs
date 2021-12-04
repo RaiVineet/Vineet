@@ -8,9 +8,9 @@ public class Pause_Menu : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
     private static Pause_Menu instance;
-    private PlayerControl pc;
+    public PlayerControl pc;
     private Fade fade;
-
+    public Camerascript Camera;
 
     // Don't destroy on loading
     private void Awake()
@@ -37,6 +37,7 @@ public class Pause_Menu : MonoBehaviour
             }
         }
     }
+   
     public void Resume()
     {
 
@@ -46,7 +47,7 @@ public class Pause_Menu : MonoBehaviour
 
 
     }
-
+    
     public void Pause()
     {
         Debug.Log("Paused");
@@ -58,7 +59,8 @@ public class Pause_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Title");
         pc.LoadTitle();
-        
+        //pc.DestroyObj();
+        //Camera.DestroyObj();
         Debug.Log("Loading...... Main Menu");
     }
 }

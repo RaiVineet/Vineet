@@ -17,7 +17,10 @@ public class Camerascript : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
     }
-
+    public void DestroyObj()
+    {
+        Destroy(gameObject);
+    }
     private void Update()
     {
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 5.5f, transform.position.z);

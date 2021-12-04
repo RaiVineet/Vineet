@@ -7,12 +7,7 @@ public class GM3 : MonoBehaviour
 {
     public GameObject p;
     public PlayerControl pc;
-    public GameObject AcessDoor;
-    public GameObject AccessDoor2;
-    public GameObject AccessDoor3;
-    public GameObject AccessDoor4;
-    public GameObject AccessDoor5;
-    public GameObject AccessDoor6;
+    
 
     //Enemy Stuff
     public GameObject burnedEnemyPrefab;
@@ -32,8 +27,7 @@ public class GM3 : MonoBehaviour
     public Light2D normalLight;
     public Light2D redLight;
 
-    public GameObject EnterCollider;
-
+   
 
 
 
@@ -54,6 +48,9 @@ public class GM3 : MonoBehaviour
     public GameObject stackofFiles;
     public GameObject BackstoryFile;
 
+    // Doors
+    public GameObject OpenDoor1;
+
 
     void Start()
     {
@@ -64,23 +61,20 @@ public class GM3 : MonoBehaviour
         timer = 120f;  //start time before the enemy spawns
 
 
-        EnterCollider.GetComponent<BoxCollider>().enabled = false;  // first disable it 
+        
 
         CombLock_2.SetActive(false);
         combLock_3.SetActive(false);
         combLock_4.SetActive(false);
-        
-        AcessDoor.SetActive(false);
-        AccessDoor2.SetActive(false);
-        AccessDoor3.SetActive(false);
-        AccessDoor4.SetActive(false);
-        AccessDoor5.SetActive(false);
-        AccessDoor6.SetActive(false);
+        OpenDoor1.SetActive(false);
+
+       
 
         if (p == null)
         {
             p = GameObject.FindGameObjectWithTag("Player");
             pc = p.GetComponent<PlayerControl>();
+
         }
 
         //if (pc.haveFlashlight)
@@ -90,13 +84,7 @@ public class GM3 : MonoBehaviour
 
         StartCoroutine(Checkpoint());
     }
-    /*
-    public void door1()
-    {
-        Door1.SetActive(true);
-        Door1sound.Play();
-    }
-    */
+   
     IEnumerator Checkpoint()
     {
         yield return new WaitForSeconds(1);
@@ -115,7 +103,7 @@ public class GM3 : MonoBehaviour
         }
     }
 
-
+    // Spawn the Burned Enemy
     IEnumerator SpawnBE()
     {
         yield return new WaitForSeconds(timer);
@@ -171,15 +159,11 @@ public class GM3 : MonoBehaviour
         Cabneit_4.GetComponent<BoxCollider>().enabled = false;
     }
 
-    public void AcessDoorOn2()
-    {
-
-        AcessDoor.SetActive(true);
-
-    }
+   
 
     private void Update()
     {
+        pc.SceneAccessOff();
         if (timerGate)
         {
             timerGate = false;

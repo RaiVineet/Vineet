@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3605962333203591864}
   m_Layer: 0
   m_Name: FlamesCollider
-  m_TagString: Untagged
+  m_TagString: Flames
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,12 +91,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.8477478, y: 0.7649536}
+    - - {x: 4.8995895, y: 0.99869585}
       - {x: -0.09109497, y: -0.23122883}
       - {x: -2.6171331, y: -0.67444444}
       - {x: 0.25929123, y: -1.0865002}
-      - {x: 3.7335067, y: -2.0895154}
-      - {x: 3.855628, y: -0.44852263}
+      - {x: 5.7203155, y: -2.557}
+      - {x: 5.141204, y: -0.71148306}
 --- !u!1 &6344059968088798877
 GameObject:
   m_ObjectHideFlags: 0

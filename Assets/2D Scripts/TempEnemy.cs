@@ -45,8 +45,8 @@ public class TempEnemy : MonoBehaviour
             {
                
                 StartCoroutine(Flee());
-                // Play the enemy Recoil animation 
-                //anim.Play("Crawling Enemy (Flashlight Recoil Animation)");
+                // Play the enemy stagger animation animation 
+               
                 anim.Play("Crawling Enemy (Stagger Animation)");
                 
             }
@@ -80,6 +80,7 @@ public class TempEnemy : MonoBehaviour
 
     void Update()
     {
+       
         
         if (!inLight)
         {

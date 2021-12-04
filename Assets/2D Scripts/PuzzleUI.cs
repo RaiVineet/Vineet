@@ -12,6 +12,7 @@ public class PuzzleUI : MonoBehaviour
 
     public GameObject p;
     public PlayerControl pc;
+   
 
     void Start()
     {

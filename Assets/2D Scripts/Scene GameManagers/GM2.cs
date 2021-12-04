@@ -52,7 +52,7 @@ public class GM2 : MonoBehaviour
         PUI = xrayCollider.GetComponent<PuzzleUI>();
 
         timerGate = true;
-        timer = 5f;        //start time before the enemy spawns
+        timer = 60f;        //start time before the enemy spawns
 
         if (p == null)
         {

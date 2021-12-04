@@ -441,7 +441,10 @@ public class PlayerControl : MonoBehaviour
 
         prefabItem = null;
     }
-
+    public void DestroyObj()
+    {
+        Destroy(gameObject);
+    }
     public void TakeDamage()
     {
         hp -= 0.34f;
@@ -468,10 +471,10 @@ public class PlayerControl : MonoBehaviour
         if (_GM2 != null)
             _gm2 = _GM2.GetComponent<GM2>();
 
-        _GM3 = GameObject.Find("Level3GameManager");
+        _GM3 = GameObject.Find("Level3Gamemanager");
 
         if (_GM3 != null)
-            _gm3 = _GM3.gameObject.GetComponent<GM3>();
+            _gm3 = _GM3.GetComponent<GM3>();
 
 
         _SpawnGM = GameObject.Find("SpawnGM");
@@ -706,7 +709,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "KickZone")
         {
             k = collision.gameObject.GetComponentInParent<Kick>();
-            //anim.SetBool("isKicking", true);
+            anim.SetBool("isKicking", true);
             
             kickBool = true;
         }
@@ -907,7 +910,9 @@ public class PlayerControl : MonoBehaviour
                    
                     _gm1.AccessDoor.SetActive(true);
                     _gm1.DoorSFXon();
-                   
+
+                    _gm3.OpenDoor1.SetActive(true);
+                    Debug.Log("Door_open");
                     itemUseBool = false;
                     itemlock = false;
                     break;
@@ -956,6 +961,8 @@ public class PlayerControl : MonoBehaviour
        // anim.SetBool("isUsing", false);
     }
 
+ 
+
     void ShuffleItemsBack()
     {
         StartCoroutine(ShufflingItemsEnum());
@@ -977,8 +984,12 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        //DestroyObj();
         Flip();
-
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    Destroy(gameObject);
+        //}
        
         if (!playerLock)
         {
