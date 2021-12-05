@@ -9,19 +9,19 @@ public class GM3 : MonoBehaviour
     public PlayerControl pc;
     
 
-    //Enemy Stuff
-    public GameObject burnedEnemyPrefab;
-    public BurnedEnemy be;
-    public GameObject SpawnedBE;
+    ////Enemy Stuff
+    //public GameObject burnedEnemyPrefab;
+    //public BurnedEnemy be;
+    //public GameObject SpawnedBE;
 
-    // Swap Points for the Enemy
-    public Transform spawnPointsGroup;
-    public Transform[] spawnPoints;
-    public int spawnNo;
+    //// Swap Points for the Enemy
+    //public Transform spawnPointsGroup;
+    //public Transform[] spawnPoints;
+    //public int spawnNo;
 
-    // Timer for the Enemy
-    public float timer;
-    public bool timerGate;
+    //// Timer for the Enemy
+    //public float timer;
+    //public bool timerGate;
 
     // Lights on the Player entery
     public Light2D normalLight;
@@ -54,14 +54,14 @@ public class GM3 : MonoBehaviour
 
     void Start()
     {
-        spawnPoints = spawnPointsGroup.GetComponentsInChildren<Transform>(); // Enemy swap points 
+       /* spawnPoints = spawnPointsGroup.GetComponentsInChildren<Transform>(); //*/ /*Enemy swap points*/ 
         redLight.gameObject.SetActive(false);
 
-        timerGate = true;
-        timer = 120f;  //start time before the enemy spawns
-
-
+        //timerGate = true;
+        //timer = 120f;  //start time before the enemy spawns
         
+
+
 
         CombLock_2.SetActive(false);
         combLock_3.SetActive(false);
@@ -72,15 +72,16 @@ public class GM3 : MonoBehaviour
 
         if (p == null)
         {
-            p = GameObject.FindGameObjectWithTag("Player");
+            p = GameObject.Find("Player");
             pc = p.GetComponent<PlayerControl>();
+            Debug.Log("Got the player");
 
         }
 
         //if (pc.haveFlashlight)
         //{
         //    Destroy(flashlightPickup);        //you can add any items you want as 'backup' pickups in case the player missed them in a previous level. 
-        //}                                   
+        //}
 
         StartCoroutine(Checkpoint());
     }
@@ -91,44 +92,47 @@ public class GM3 : MonoBehaviour
         pc.SavePlayer();
         pc.FindOnScene();
     }
-
-    //Burned Enemy Stuffs 
-    public void ChooseSpawnPoint()
+    public void OpenDoor()
     {
-        spawnNo = Random.Range(0, spawnPoints.Length);
-        float d = Vector2.Distance(p.transform.position, spawnPoints[spawnNo].transform.position);
-        if (d < 10f)
-        {
-            ChooseSpawnPoint();
-        }
+        OpenDoor1.SetActive(true);
     }
+    ////Burned Enemy Stuffs 
+    //public void ChooseSpawnPoint()
+    //{
+    //    spawnNo = Random.Range(0, spawnPoints.Length);
+    //    float d = Vector2.Distance(p.transform.position, spawnPoints[spawnNo].transform.position);
+    //    if (d < 10f)
+    //    {
+    //        ChooseSpawnPoint();
+    //    }
+    //}
 
-    // Spawn the Burned Enemy
-    IEnumerator SpawnBE()
-    {
-        yield return new WaitForSeconds(timer);
+    //// Spawn the Burned Enemy
+    //IEnumerator SpawnBE()
+    //{
+    //    yield return new WaitForSeconds(timer);
 
-        normalLight.gameObject.SetActive(false);
-        redLight.gameObject.SetActive(true);
+    //    normalLight.gameObject.SetActive(false);
+    //    redLight.gameObject.SetActive(true);
 
-        ChooseSpawnPoint();
+    //    ChooseSpawnPoint();
 
-        SpawnedBE = Instantiate(burnedEnemyPrefab, spawnPoints[spawnNo].transform.position, Quaternion.identity);
-        SpawnedBE.transform.position = new Vector3(spawnPoints[spawnNo].transform.position.x, -17.9f, transform.position.z);
-        be = SpawnedBE.GetComponent<BurnedEnemy>();
-        yield return new WaitForSeconds(0.001f);
-        be.FlipSpriteCheck();
+    //    SpawnedBE = Instantiate(burnedEnemyPrefab, spawnPoints[spawnNo].transform.position, Quaternion.identity);
+    //    SpawnedBE.transform.position = new Vector3(spawnPoints[spawnNo].transform.position.x, -17.9f, transform.position.z);
+    //    be = SpawnedBE.GetComponent<BurnedEnemy>();
+    //    yield return new WaitForSeconds(0.001f);
+    //    be.FlipSpriteCheck();
 
-        yield return new WaitForSeconds(15f);
+    //    yield return new WaitForSeconds(15f);
 
-        if (SpawnedBE != null)
-            Destroy(SpawnedBE);
-        normalLight.gameObject.SetActive(true);
-        redLight.gameObject.SetActive(false);
+    //    if (SpawnedBE != null)
+    //        Destroy(SpawnedBE);
+    //    normalLight.gameObject.SetActive(true);
+    //    redLight.gameObject.SetActive(false);
 
-        timer = Random.Range(20f, 120f);
-        timerGate = true;
-    }
+    //    timer = Random.Range(20f, 120f);
+    //    timerGate = true;
+    //}
 
     // lock 1
     public void UnlockCombi1()
@@ -164,11 +168,11 @@ public class GM3 : MonoBehaviour
     private void Update()
     {
         pc.SceneAccessOff();
-        if (timerGate)
-        {
-            timerGate = false;
-            StartCoroutine(SpawnBE());
-        }
+        //if (timerGate)
+        //{
+        //    timerGate = false;
+        //    StartCoroutine(SpawnBE());
+        //}
     }
 
 }

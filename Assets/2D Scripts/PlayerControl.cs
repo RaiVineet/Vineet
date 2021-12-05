@@ -911,7 +911,7 @@ public class PlayerControl : MonoBehaviour
                     _gm1.AccessDoor.SetActive(true);
                     _gm1.DoorSFXon();
 
-                    _gm3.OpenDoor1.SetActive(true);
+                    _gm3.OpenDoor();
                     Debug.Log("Door_open");
                     itemUseBool = false;
                     itemlock = false;

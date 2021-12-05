@@ -4909,7 +4909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1004774009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5009,7 +5009,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004774008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 219.02, y: -44.11, z: 0}
+  m_LocalPosition: {x: 219.02, y: -41.6, z: 0}
   m_LocalScale: {x: 1.5381, y: 1.5381, z: 1.5381}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8466,6 +8466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 880408097274767111}
+  redLight: {fileID: 0}
+  normalLight: {fileID: 0}
 --- !u!61 &1790521728
 BoxCollider2D:
   m_ObjectHideFlags: 0

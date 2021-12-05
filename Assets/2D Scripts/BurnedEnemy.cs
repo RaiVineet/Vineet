@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class BurnedEnemy : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed;  
     public bool moveRight;
     public float rightMost;
     public float leftMost;
@@ -23,22 +24,28 @@ public class BurnedEnemy : MonoBehaviour
     public GameObject _GM3;
     public GM3 _gm3;
 
+    //public Light2D redLight;
+    //public Light2D normalLight;
+
     public GameObject BurnSoundSFXobj;
     public AudioSource BurnSoundSFX;
 
     private void Start()
     {
+        if (p == null)
+        {
+            p = GameObject.Find("Player");
+            pc = p.GetComponent<PlayerControl>();
+            Debug.Log("Got the Enemy player");
+        }
         mySprite = GetComponentInChildren<SpriteRenderer>();
         inFlames = false;
         flameSwitch = false;
         
-        moveSpeed = 7f;
+        moveSpeed = 5f;
 
-        //if (p == null)
-        {
-            p = GameObject.FindGameObjectWithTag("Player");
-            pc = p.GetComponent<PlayerControl>();
-        }
+        //redLight.gameObject.SetActive(false);
+        
         _GM2 = GameObject.Find("Level2GameManager");
         if (_GM2 != null)
             _gm2 = _GM2.gameObject.GetComponent<GM2>();
@@ -50,12 +57,13 @@ public class BurnedEnemy : MonoBehaviour
 
         BurnSoundSFX = BurnSoundSFXobj.GetComponent<AudioSource>();
     }
-    //if the enemy 
+    //if the enemy collide with object tag name Player then take damage
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-           //play the enemy killing the player animation 
+            //play the enemy killing the player animation 
+            
             pc.TakeDamage(); // take damamge, load the scene 
         }
     }
@@ -64,27 +72,9 @@ public class BurnedEnemy : MonoBehaviour
     {
         if (transform.position.x < p.transform.position.x)
         {
-
-           // anim.Play("(Mal (Burned Enemy)(Chase Animation)");
             anim.SetBool("chase", true);
 
-            mySprite.flipX = true;
-          
-           
-            
-            //if (FacingRight)
-            //{
-
-               
-            //    transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 180.0f, transform.localEulerAngles.z);
-
-            //}
-            //else
-            //{
-               
-            //    transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 0.0f, transform.localEulerAngles.z);
-            //}
-            
+            //mySprite.flipX = true // for the burned enemy who have the sprite sheet 
         }
     }
 
@@ -102,13 +92,9 @@ public class BurnedEnemy : MonoBehaviour
     IEnumerator Dying()
     {
         dyingFlames.SetActive(true);
-        
+       
         yield return new WaitForSeconds(2f);
-        _gm2.normalLight.gameObject.SetActive(true);
-        _gm2.redLight.gameObject.SetActive(false);
-
-        _gm2.timer = Random.Range(20f, 120f);
-        _gm2.timerGate = true;
+        
         Destroy(gameObject);
     }
 
@@ -118,6 +104,7 @@ public class BurnedEnemy : MonoBehaviour
         if (inFlames == true)
         {
             anim.SetBool("retreat", true);
+            
             StartCoroutine(Dying());
         }
         anim.SetBool("chase", true);
@@ -147,3 +134,8 @@ public class BurnedEnemy : MonoBehaviour
         }
     }
 }
+//_gm2.timer = Random.Range(20f, 120f);
+//_gm2.timerGate = true;
+
+//redLight.gameObject.SetActive(false);
+//normalLight.gameObject.SetActive(true);

@@ -100,8 +100,8 @@ MonoBehaviour:
   - {fileID: 1548289529878583622}
   - {fileID: 2753902787170052367}
   m_Bounds:
-    m_Center: {x: -0.0000009536743, y: 0.00031495094, z: -0.000000111346495}
-    m_Extent: {x: 0.7500001, y: 0.40468487, z: 0.00000014466035}
+    m_Center: {x: 0.000011920929, y: 0.0003169775, z: -0.000022894355}
+    m_Extent: {x: 0.7499882, y: 0.404685, z: 0.0000076251}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &50852476806759263
@@ -266,8 +266,8 @@ MonoBehaviour:
   - {fileID: 4715044519542133533}
   - {fileID: 7984324430775530362}
   m_Bounds:
-    m_Center: {x: -0.004700005, y: 0.00007003546, z: 0.00000023806017}
-    m_Extent: {x: 0.41030008, y: 0.9762399, z: 0.000000024464313}
+    m_Center: {x: -0.004700005, y: 0.0000718236, z: -7.079226e-11}
+    m_Extent: {x: 0.41030014, y: 0.97624016, z: 0.0000000122979245}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &349472368879287079
@@ -5301,8 +5301,8 @@ MonoBehaviour:
   - {fileID: 5699249603199760384}
   - {fileID: 1370315837625339367}
   m_Bounds:
-    m_Center: {x: 0.001979053, y: -0.0013697147, z: 0.0000000015381545}
-    m_Extent: {x: 0.79802006, y: 2.68709, z: 0.00000026676182}
+    m_Center: {x: 0.0020106435, y: -0.0013682842, z: 0.0000000016172557}
+    m_Extent: {x: 0.79802024, y: 2.6870902, z: 0.000000023746018}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &899674367260770445
@@ -5467,8 +5467,8 @@ MonoBehaviour:
   - {fileID: 6326173700218966575}
   - {fileID: 6095023118114756056}
   m_Bounds:
-    m_Center: {x: -0.0007199347, y: -0.0011948347, z: 0.000000115132636}
-    m_Extent: {x: 0.38135007, y: 1.5238048, z: 0.00000012328238}
+    m_Center: {x: -0.0006894171, y: -0.001193285, z: -0.00001526479}
+    m_Extent: {x: 0.38135013, y: 1.523805, z: 0.000000017513685}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1675229915762823515
@@ -5602,8 +5602,8 @@ MonoBehaviour:
   - {fileID: 4715044519542133533}
   - {fileID: 2597897150520509092}
   m_Bounds:
-    m_Center: {x: -0.0016992688, y: 0.0007895231, z: 0.00000012033485}
-    m_Extent: {x: 0.31708997, y: 1.1828599, z: 0.00000013212124}
+    m_Center: {x: -0.0017001033, y: 0.00078999996, z: -0.000007640225}
+    m_Extent: {x: 0.3170901, y: 1.18286, z: 0.000007640143}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &2999677793740665601
@@ -5793,6 +5793,133 @@ Transform:
   m_Father: {fileID: 2753902787170052367}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4594689402392386597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3719952784741957328}
+  - component: {fileID: 9096895842256827322}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3719952784741957328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594689402392386597}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 798.4566, y: 322.77963, z: -6494.2676}
+  m_LocalScale: {x: 1.3236969, y: 1.3236969, z: 1.3236969}
+  m_Children: []
+  m_Father: {fileID: 383308304692918658}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &9096895842256827322
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4594689402392386597}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 0bcd09cba6ccdc941a4a7fd8d8b2b789, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4655477790464111742
 GameObject:
   m_ObjectHideFlags: 0
@@ -5841,6 +5968,7 @@ Transform:
   - {fileID: 1477182509339792243}
   - {fileID: 8403991692525391941}
   - {fileID: 349472368977567809}
+  - {fileID: 3719952784741957328}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5870,6 +5998,8 @@ MonoBehaviour:
   _gm2: {fileID: 0}
   _GM3: {fileID: 0}
   _gm3: {fileID: 0}
+  redLight: {fileID: 0}
+  normalLight: {fileID: 0}
   BurnSoundSFXobj: {fileID: 0}
   BurnSoundSFX: {fileID: 0}
 --- !u!95 &4655477790464111741
@@ -6165,8 +6295,8 @@ MonoBehaviour:
   - {fileID: 5497467178887507531}
   - {fileID: 2753902787170052367}
   m_Bounds:
-    m_Center: {x: -0.0012151301, y: 0.0014642477, z: 8.351124e-10}
-    m_Extent: {x: 0.31754512, y: 1.1835356, z: 0.000000011793829}
+    m_Center: {x: -0.0012116134, y: 0.001464963, z: -0.000007622142}
+    m_Extent: {x: 0.31754866, y: 1.1835353, z: 0.000007637305}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &5495627405357276169
@@ -6269,8 +6399,8 @@ MonoBehaviour:
   - {fileID: 4766789885267773966}
   - {fileID: 6383832420354417223}
   m_Bounds:
-    m_Center: {x: 0.000210464, y: 0.0030745268, z: 0.00000023349907}
-    m_Extent: {x: 0.9762797, y: 1.159845, z: 0.00000024800283}
+    m_Center: {x: 0.00022554398, y: 0.0030750036, z: 0.000007636884}
+    m_Extent: {x: 0.9762652, y: 1.159845, z: 0.000007621331}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &5870600301319144245
@@ -6468,8 +6598,8 @@ MonoBehaviour:
   - {fileID: 6326173700218966575}
   - {fileID: 702038388739799709}
   m_Bounds:
-    m_Center: {x: -0.0029880702, y: 0.002004981, z: 0.00000012211717}
-    m_Extent: {x: 0.42201024, y: 1.2579951, z: 0.00000012892829}
+    m_Center: {x: -0.003020525, y: 0.0020059347, z: -0.000015259197}
+    m_Extent: {x: 0.4220103, y: 1.2579942, z: 0.000000015652859}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7406229470498635243
@@ -6572,8 +6702,8 @@ MonoBehaviour:
   - {fileID: 6095023118114756056}
   - {fileID: 702038388739799709}
   m_Bounds:
-    m_Center: {x: -0.0000009536743, y: 0.00000035762787, z: -0.0000002382195}
-    m_Extent: {x: 0.55500007, y: 0.575, z: 0.000000016811654}
+    m_Center: {x: 0.000030577183, y: 0.00000017881393, z: -0.00001526167}
+    m_Extent: {x: 0.5550002, y: 0.5749999, z: 0.000000030339834}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7463428699746681048
@@ -6676,8 +6806,8 @@ MonoBehaviour:
   - {fileID: 5497467178887507531}
   - {fileID: 5265804671477534970}
   m_Bounds:
-    m_Center: {x: -0.0042358935, y: -0.0021552444, z: -2.5970426e-10}
-    m_Extent: {x: 0.41076523, y: 0.9778453, z: 0.000000012251548}
+    m_Center: {x: -0.0042044222, y: -0.0021532774, z: -4.891625e-10}
+    m_Extent: {x: 0.41076523, y: 0.9778451, z: 0.000000024494451}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7807766958612091150
@@ -6780,8 +6910,8 @@ MonoBehaviour:
   - {fileID: 8741684695964387480}
   - {fileID: 2597897150520509092}
   m_Bounds:
-    m_Center: {x: -0.0000014901161, y: -0.00048968196, z: -0.00000025380513}
-    m_Extent: {x: 0.74999964, y: 0.4039197, z: 0.000000026426939}
+    m_Center: {x: 0.000030577183, y: -0.00048813224, z: -0.000015258221}
+    m_Extent: {x: 0.75000006, y: 0.40392005, z: 0.0000000031404852}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7993684853906320591
@@ -6884,8 +7014,8 @@ MonoBehaviour:
   - {fileID: 628732574878591740}
   - {fileID: 6742081602354756421}
   m_Bounds:
-    m_Center: {x: -0.0000005364418, y: 0.0000005364418, z: -3.4630077e-10}
-    m_Extent: {x: 0.55500054, y: 0.57500005, z: 0.000000016834708}
+    m_Center: {x: 0.000030517578, y: 0, z: -0.000015256625}
+    m_Extent: {x: 0.5550002, y: 0.57500005, z: 0.000000014372745}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &8071341350589286814
@@ -7020,8 +7150,8 @@ MonoBehaviour:
   - {fileID: 6750914583792195031}
   - {fileID: 628732574878591740}
   m_Bounds:
-    m_Center: {x: -0.0017293394, y: -0.0013141632, z: 0.00000013027193}
-    m_Extent: {x: 0.38327026, y: 1.5236851, z: 0.00000011764645}
+    m_Center: {x: -0.0016762912, y: -0.0013132095, z: -0.000007625975}
+    m_Extent: {x: 0.38327736, y: 1.5236852, z: 0.000007637338}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &8686654243772479323
@@ -7155,8 +7285,8 @@ MonoBehaviour:
   - {fileID: 6750914583792195031}
   - {fileID: 6742081602354756421}
   m_Bounds:
-    m_Center: {x: -0.0029899776, y: 0.0020056963, z: 0.000000108667564}
-    m_Extent: {x: 0.4220103, y: 1.2579949, z: 0.00000012567749}
+    m_Center: {x: -0.003020525, y: 0.0020068884, z: -0.000007638728}
+    m_Extent: {x: 0.4220103, y: 1.2579951, z: 0.000007633802}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &9133619816369979761

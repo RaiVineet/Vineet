@@ -41,7 +41,7 @@ public class Stairs2 : MonoBehaviour
     {
         if (playerIn)
         {
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.W))
             {
                 _collider.SetActive(true);
             }

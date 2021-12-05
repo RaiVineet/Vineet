@@ -45,7 +45,7 @@ public class GM2 : MonoBehaviour
     {
         spawnPoints = spawnPointsGroup.GetComponentsInChildren<Transform>();
         // pc.SceneAccessOff();
-        redLight.gameObject.SetActive(false);
+        //redLight.gameObject.SetActive(false);
         openDoortoLevel3.SetActive(false);
         xrayCollider.GetComponent<BoxCollider>().enabled = false;
         papers.SetActive(false);
@@ -58,6 +58,7 @@ public class GM2 : MonoBehaviour
         {
             p = GameObject.FindGameObjectWithTag("Player");
             pc = p.GetComponent<PlayerControl>();
+            Debug.Log("Got the player");
         }
 
         if (pc.haveLighter)
@@ -105,8 +106,8 @@ public class GM2 : MonoBehaviour
 
         if (SpawnedBE != null)
             Destroy(SpawnedBE);
-        normalLight.gameObject.SetActive(true);
-        redLight.gameObject.SetActive(false);
+        //normalLight.gameObject.SetActive(true);
+        //redLight.gameObject.SetActive(false);
 
         timer = Random.Range(20f, 120f);
         timerGate = true;
