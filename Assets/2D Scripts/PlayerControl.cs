@@ -709,6 +709,7 @@ public class PlayerControl : MonoBehaviour
         if (collision.gameObject.tag == "KickZone")
         {
             k = collision.gameObject.GetComponentInParent<Kick>();
+           
             anim.SetBool("isKicking", true);
             
             kickBool = true;
@@ -806,16 +807,19 @@ public class PlayerControl : MonoBehaviour
                 anim.SetBool("isWalking", false);
                 anim.SetBool("isJumping", false);
                 
+                
 
                 //play jump animation
                 if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
                 {
                     StartCoroutine(JumpSpeed());
-                   
-                    anim.SetBool("isJumping", true);
-                    anim.SetBool("isWalking ", false);
-                    anim.SetBool("isRunning", false);
-                    
+                    movementSpeed = 5f;
+                    anim.Play("Player_Jump");
+                    //anim.SetBool("isJumping", true);
+                    //anim.SetBool("isRunning", false);
+                    //anim.SetBool("isWalking ", false);
+
+
                     myRigidbody.velocity = Vector2.up * jumpVelocity;
                 }
                
@@ -824,6 +828,7 @@ public class PlayerControl : MonoBehaviour
             else if (Input.GetKey(KeyCode.LeftShift) && stam < 0)
             {
                 stamBool = false;
+                movementSpeed = 4f;
                 myRigidbody.velocity = new Vector2(horizontal * movementSpeed + sprint, myRigidbody.velocity.y);
                 anim.SetBool("isWalking", true);
                 anim.SetBool("isRunning", false);
@@ -986,11 +991,11 @@ public class PlayerControl : MonoBehaviour
     {
         //DestroyObj();
         Flip();
-        //if (Input.GetKeyDown(KeyCode.T))
-        //{
-        //    Destroy(gameObject);
-        //}
-       
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            anim.SetBool("isJumping", true);
+        }
+
         if (!playerLock)
         {
             if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.D)))
@@ -1052,24 +1057,24 @@ public class PlayerControl : MonoBehaviour
                 }
                 */
                 
-                if (Input.GetMouseButtonDown(1))
-                {
-                     if (kickBool)
-                     {
-                        // play kick animation
-                        anim.SetBool("isKicking", true);
-                        k.KickFuncs();
+                //if (Input.GetMouseButtonDown(1))
+                //{
+                //     if (kickBool)
+                //     {
+                //        // play kick animation
+                //        anim.SetBool("isKicking", true);
+                //        k.KickFuncs();
 
 
-                     }
-                     anim.SetBool("isKicking", true);
-                     playerLock = true;
-                     StartCoroutine(KickTime());
-                     anim.SetBool("isWalking", false);
-                     horizontal = 0f;
-                     stamBool = true;
-                     myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);
-                }
+                //     }
+                //     //anim.SetBool("isKicking", true);
+                //     playerLock = true;
+                //     StartCoroutine(KickTime());
+                //     anim.SetBool("isWalking", false);
+                //     horizontal = 0f;
+                //     stamBool = true;
+                //     myRigidbody.velocity = new Vector2(0, myRigidbody.velocity.y);
+                //}
                 
                 
 
@@ -1083,8 +1088,9 @@ public class PlayerControl : MonoBehaviour
                     if (kickBool)
                     {
                         // play kick animation
+                        anim.Play("Player_Kick");
                         k.KickFuncs();
-                        anim.Play("isKicking");
+                      
                     }
                 }
                 horizontal = 0f;
