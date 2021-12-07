@@ -19,7 +19,7 @@ public class InventoryItemUse : MonoBehaviour
 
     void Start()
     {
-        panel.SetActive(false);
+        panel.SetActive(true);
         UseButton.enabled = false;
         InspectButton.enabled = false;
         _active = false;
@@ -42,7 +42,7 @@ public class InventoryItemUse : MonoBehaviour
     public void EquipLigher()
     {
         pc.EquipLighter();
-        panel.SetActive(false);
+        panel.SetActive(true);
         _active = false;
     }
 
@@ -50,14 +50,14 @@ public class InventoryItemUse : MonoBehaviour
     {
         
         pc.EquipFlashlight();
-        panel.SetActive(false);
+        panel.SetActive(true);
         _active = false;
     }
 
     public void CombineSprayCan()
     {
         pc.CombineSprayCan();
-        panel.SetActive(false);
+        panel.SetActive(true);
         _active = false;
     }
 

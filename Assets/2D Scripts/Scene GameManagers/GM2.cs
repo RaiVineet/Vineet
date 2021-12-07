@@ -91,8 +91,8 @@ public class GM2 : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
 
-        normalLight.gameObject.SetActive(false);
-        redLight.gameObject.SetActive(true);
+        //normalLight.gameObject.SetActive(false);
+        //redLight.gameObject.SetActive(true);
 
         ChooseSpawnPoint();
 
