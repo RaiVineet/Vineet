@@ -13152,6 +13152,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1723298656}
     m_Modifications:
+    - target: {fileID: 2653442484038034137, guid: 19f239f59e6a51a458e2875be1926d49, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3654266802764548189, guid: 19f239f59e6a51a458e2875be1926d49, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -29817,8 +29821,8 @@ MonoBehaviour:
   threeA: 7
   threeB: 2
   threeC: 4
-  threeD: 3
-  threeE: 0
+  threeD: 0
+  threeE: 3
   fourA: 1
   fourB: 5
   fourC: 9
